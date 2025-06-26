@@ -10,8 +10,11 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # === 手動載入 tokenizer，避免錯誤 pad_token 類型 ===
 print("🔍 Manually loading tokenizer from:", model_path)
-tokenizer = LlamaTokenizer.from_pretrained(model_path, use_fast=False)
-tokenizer.pad_token = tokenizer.unk_token or "[PAD]"
+tokenizer = LlamaTokenizer.from_pretrained(
+    model_path,
+    use_fast=False,
+    pad_token="[PAD]",
+)
 print(f"✅ pad_token set to: {tokenizer.pad_token}")
 
 # === 載入模型與圖片處理器 ===
