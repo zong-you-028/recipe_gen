@@ -53,7 +53,7 @@ print(f"📝 Prompt: {prompt}")
 input_ids = tokenizer_image_token(
     prompt_with_img,
     tokenizer,
-    IMAGE_TOKEN_INDEX=image_token_id,
+    image_token_index=image_token_id,
     return_tensors='pt'
 ).unsqueeze(0).to(device)
 
